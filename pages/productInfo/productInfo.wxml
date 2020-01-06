@@ -1,0 +1,76 @@
+<view class='body'>
+<swiper indicator-dots="true"
+  autoplay="true" interval="5000" duration="500" style="width:100%;height:680rpx;">
+  <block>
+     <block>
+    <swiper-item data-url='{{idx}}' catchtap="proablum" wx:for='{{indexdata.gift_list}}' wx:key="item" >
+      <image src="{{item.image_url}}" class="slide-image" bindtap='webview' data-id='{{item.android_link}}' style="width:100%;height:640rpx;"/>
+    </swiper-item>
+  </block>
+  </block>
+</swiper>
+<view class='main'>
+        <view class='main_price'>{{indexdata.price}}</view>
+        <view class='main_title'>{{indexdata.name}}</view>
+        <view class='main_info' wx:if='{{indexdata.gift_list[0]}}'>盼盼智能晾晒，下单即送精美礼品一套！<text bindtap='look'>查看></text> </view>
+</view>
+      <view class='spec'  bindtap='spec'>
+        <view style='width:600rpx;' ><text>规格</text></view>
+        <view style='' wx:if='{{!product}}'><text style='color:#BBBBBB;'>未选择</text><text style='transform: scaleX(-1);color: #141414;'>></text></view>
+        <view style='' wx:if='{{product}}'><text style='color:#BBBBBB;'>已选择</text><text style='transform: scaleX(-1);color: #141414;'>></text></view>
+      </view>
+       <import src="../../wxParse/wxParse.wxml" />
+       <view style='padding:24rpx;'>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"  />
+</view>
+      <view class='specsbox'  wx:if='{{!active&&active1==2}}'>
+        <view class='specs_info'>
+          <image src='{{indexdata.attribute_map_list[indexflex].image_url}}'></image>
+          <view>
+               <view class='main_price'>{{indexdata.attribute_map_list[indexflex].price}}</view>
+                <view class='main_title'>{{indexdata.name}}</view>
+                <view class='main_title'>{{indexdata.attribute_map_list[indexflex].attr_set_name}}</view>
+          </view>
+        </view>
+          <view class='spec_list' wx:for='{{indexdata.attribute_list}}' wx:key="item">
+            <view class='spec_title'>
+              {{item.name}}
+            </view>
+            <view class='spec_select_box'>
+            <view  wx:for='{{item.data}}' wx:key="item" class='spec_select {{item.active}}' bindtap='change' data-id='{{item.id}}' data-type='{{item.active}}'>
+            {{item.name}}
+            </view>
+            </view>
+          </view>
+            <view class='number_list'>
+            <view class='spec_title'>
+              购买数量  
+            </view>
+            <view class="stepper">  
+              <text class="{{minusStatus}}" bindtap="bindMinus">-</text>  
+              <input type="number" bindchange="bindManual" value="{{num}}" />  
+              <text class="normal" bindtap="bindPlus">+</text>  
+          </view>  
+      </view>
+      </view>
+      <view class='specsbox'  wx:if='{{!active&&active1==1}}'>
+          <view class='specsbox_title'>选择赠品</view>
+            <radio-group class="radio-group" bindchange="radioChange">
+            <view>
+              <label class="radio" wx:for="{{indexdata.gift_list}}"  wx:key="item">
+
+            <radio class="radio" value="{{item.gift_attribute_map_id}}" checked="{{item.checked}}" disabled="{{item.disabled}}" />
+              <image src='{{item.image_url}}'></image>
+              <view>
+                <view>{{item.name}}</view>
+                <view style='color: #BBBBBB'>{{item.attr_set_name}}</view>
+              </view>
+              </label>
+              </view>
+            </radio-group>
+      </view>
+            <view class='mark' bindtap='mark' wx:if='{{!active}}'>    </view>
+      <view class='footer'>
+      <view class='buy_btn' bindtap='buy_btn'>立即购买</view>
+      </view>
+</view>

@@ -1,0 +1,49 @@
+/* pages/login/login.wxss */
+.body{
+  text-align: center
+}
+.logo{
+  width: 222rpx;
+  height: 180rpx;
+
+}
+.topassword{
+  position: absolute;
+  bottom: 20rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #888888;
+  width: 100vw;
+}
+.header{
+  padding: 101rpx 0;
+}
+input{
+  text-align: left;
+  line-height: 120rpx;
+  height: 120rpx;
+  border-bottom: 1px solid #F0F0F0;
+}
+.main{
+  padding: 0rpx 80rpx; 
+}
+.login_btn{
+  margin-top: 80rpx;
+  background-image: linear-gradient(212deg, #E64F00 0%, #E62000 100%);
+  border-radius: 46px;
+  width: 582rpx;
+  height: 92rpx;
+  line-height: 92rpx;
+  color: #fff;
+  font-size: 36rpx;
+}
+.tosign{
+  margin-top: 50rpx;
+  font-size: 28rpx;
+color: #888888;
+}
+button{
+background: #ffffff !important;
+border: 0px solid transparent !important;
+outline: 0
+}

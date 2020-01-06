@@ -1,0 +1,15 @@
+<view class='body'>
+  <view class='header'>
+    <image src='../images/logo.png' class='logo'></image>
+  </view>
+  <view>
+  <view class='main'>
+      <input placeholder='请输入11位手机号码'  bindinput="bindKeyInput1"></input>
+      <input placeholder='请输入密码'  bindinput="bindKeyInput2" type='password'></input>
+      <view class='login_btn' bindtap='login_btn'>登录</view>
+      <button class='tosign' open-type="getUserInfo"bindgetuserinfo="bindGetUserInfo">还没账号？立即授权注册</button>
+  </view>
+  </view>
+
+  <view class='topassword' bindtap='topassword'>忘记密码?</view>
+</view>

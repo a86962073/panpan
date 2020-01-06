@@ -1,0 +1,18 @@
+<view class='body'>
+  <view class='address_box'>
+    <view wx:for='{{indexdata}}' wx:key='item'  catchtap='goback'  data-id='{{item.id}}'>
+       <view class='user_info' style=''>
+      <view style='display:flex'>
+      <view style='margin-right:40rpx;'>{{item.name}}</view>
+      <view>{{item.phone}}</view>
+      </view>
+      <view class='user_address'>收货地址： <text wx:if='{{item.is_default==1}}'>（默认地址）</text>{{item.province_name}}{{item.city_name}}{{item.district_name}}{{item.address}}</view>
+      <view style='position:absolute;right:24rpx;margin-top:-100rpx;' catchtap='toedit' data-id='{{item.id}}'> <image src='../images/edit.png' style='width:22rpx;height:26rpx;'></image> </view>
+  </view>
+    </view>
+    
+  </view>
+  <view class='footer' bindtap='toadd'>
+    +新建收货地址
+  </view>
+</view>

@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class='body'>
+<swiper indicator-dots="true"
+  autoplay="true" interval="5000" duration="500" style="width:100%;height:640rpx;">
+  <block>
+    <swiper-item data-url='{{idx}}' catchtap="proablum" wx:for='{{banner.top}}' wx:key="item" >
+      <image src="{{item.image_url}}" class="slide-image" bindtap='webview' data-id='{{item.html_link}}' style="width:100%;height:640rpx;" bindtap='towebview'/>
+    </swiper-item>
+  </block>
+</swiper>
+<view class='nav'>
+  <image src='../images/nav.png'></image>
+  <view class='nav_text'>选择下方报单产品</view>
+</view>
+<view class='main'>
+    <view class='main_box' wx:for='{{indexdata}}'  wx:key="item" data-id='{{item.goods_id}}' bindtap='toProductInfo'>
+      <image src='{{item.main_image}}' class='main_image'></image>
+      <view class='main_info'>
+        <view class='main_title'>{{item.name}}</view>
+        <view class='main_price'>{{item.price}}</view>
+        <view class='main_label' wx:if='{{item.has_gift}}'>送赠品</view>
+      </view>
+    </view>
+</view>
+</view>

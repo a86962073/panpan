@@ -1,0 +1,37 @@
+<view>
+  <view class='header {{nav}}'>
+    <view bindtap="nav" class='tab1' data-id="1">全部</view>
+    <view bindtap="nav" class='tab2' data-id="2">待支付</view>
+    <view bindtap="nav" class='tab3' data-id="3">待收货</view>
+    <view bindtap="nav" class='tab4' data-id="4">已完成</view>
+    <view bindtap="nav" class='tab5' data-id="5">已取消</view>
+  </view>
+  <view class='order_main' wx:for='{{indexdata}}' wx:key='item'  bindtap="toinfo" data-id='{{item.order_id}}'>
+  <view class='order_box'>
+    <view calss='order_main'>
+        <view class='order_header'>
+          <image src='../images/order.png'></image><text>订单编号：{{item.title}}</text>
+          <view>{{item.condition_desc}}</view>
+        </view>
+    </view>
+    <view  wx:for='{{item.goods_list}}' wx:key='item' >
+    <view class='product_box' wx:for='{{item.list}}' wx:key='item'>
+      <image src='{{item.image}}' class='product_image'></image>
+      <view class='product_info'>
+          <view class='product_title'>{{item.name}}</view>
+          <view class='product_spec'>规格：{{item.attribute_set_name}}</view>
+          <view class='product_price price' wx:if='{{item.price!=0}}'>¥{{item.price}}<text class='product_price'>x{{item.number}}</text></view> 
+          <view class='product_price price' wx:if='{{item.price==0}}'>赠品<text class='product_price'>x{{item.number}}</text></view> 
+      </view>
+     </view>
+    </view>
+    <view style='font-size:26rpx;color:#b4b4b4;text-align:right;margin-right:24rpx;padding:40rpx 0;'>共{{item.goods_count}}件商品，合计：<text class='price' style='font-size:30rpx;color:#000000'>¥{{item.pay_sum_money}}</text></view>
+    <view class='product_btn_box'>
+           <view class='btn btn_cancel' catchtap='btn_cancel' data-id='{{item.order_id}}' wx:for='{{item.operation_list}}' wx:if='{{twodata.type=="cancel"&&twodata.is_show==1}}'  wx:for-item="twodata" >取消订单</view>
+      <view class='btn btn_pay' catchtap='btn_pay' data-id='{{item.order_id}}' wx:for='{{item.operation_list}}' wx:if='{{twodata.type=="pay"&&twodata.is_show==1}}' wx:for-item="twodata" >去支付</view>
+      <view class='btn btn_logistics' catchtap='btn_confirm_delivered'  wx:for='{{item.operation_list}}' wx:if='{{twodata.type=="confirm_delivered"&&twodata.is_show==1}}' data-id='{{item.order_id}}' wx:for-item="twodata" >确认收货</view>
+      <view class='btn btn_delete' catchtap='btn_delete'  wx:for='{{item.operation_list}}' wx:if='{{twodata.type=="delete"&&twodata.is_show==1}}' data-id='{{item.order_id}}' wx:for-item="twodata" >删除订单</view>
+    </view>
+  </view>
+  </view>
+</view>

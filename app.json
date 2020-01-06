@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/address/address",
+    "pages/password/password",
+    "pages/login/login",
+    "pages/register2/register",
+    "pages/register/register",
+    "pages/productInfo/productInfo",
+    "pages/addAddress/addAddress",
+    "pages/editAddress/editAddress",
+    "pages/orderpay/orderpay",
+    "pages/orderinfo/orderinfo",
+    "pages/paysuccess/paysuccess",
+    "pages/user/user",
+    "pages/order/order",
+    "pages/webview/webview",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "盼盼",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#FF5E3A",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "pages/images/index.png",
+        "selectedIconPath": "pages/images/index_active.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单",
+        "iconPath": "pages/images/orderlist.png",
+        "selectedIconPath": "pages/images/orderlist_active.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "pages/images/myinfo.png",
+        "selectedIconPath": "pages/images/myinfo_active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

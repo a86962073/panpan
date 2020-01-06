@@ -1,0 +1,11 @@
+<view>
+  <view class='header'>
+    <image src='../images/success.png'></image>
+    <view style='margin-top:60rpx;font-size:30rpx;color:#333'>支付成功</view>
+    <view  style='margin-top:30rpx;font-size:26rpx;color:#969696'>我们将会第一时间为您进行发货</view>
+  </view>
+  <view class='btn_box'>
+    <view class='btn' bindtap='toindex'>返回首页</view>
+     <view class='btn' bindtap='toorder'>查看订单</view>
+  </view>
+</view>

@@ -1,0 +1,39 @@
+<view class='body'>
+  <view class='header'>
+    · {{indexdata.condition_desc}}
+  </view>
+  <view class='user_info'>
+      <view style='display:flex'>
+      <view style='margin-right:40rpx;'>{{indexdata.delivery_address.contacts_name}}</view>
+      <view>{{indexdata.delivery_address.contacts_tel}}</view>
+      </view>
+      <view class='user_address'>{{indexdata.delivery_address.full_address}}</view>
+  </view>
+  <view  wx:for='{{indexdata.goods_list}}' wx:key='item' >
+    <view class='product_box' wx:for='{{item.list}}' wx:key='item'>
+      <image src='{{item.image}}' class='product_image'></image>
+      <view class='product_info'>
+          <view class='product_title'>{{item.name}}</view>
+          <view class='product_spec'>规格：{{item.attribute_set_name}}</view>
+          <view class='product_price price' wx:if='{{item.price!=0}}'>¥{{item.price}}<text class='product_price'>x{{item.number}}</text></view> 
+          <view class='product_price price' wx:if='{{item.price==0}}'>赠品<text class='product_price'>x{{item.number}}</text></view> 
+      </view>
+     </view>
+    </view>
+    <view class='order_info'>
+      <view>订单编号：<text>{{indexdata.title}}</text></view>
+      <view>联系方式：<text>{{indexdata.delivery_address.contacts_tel}}</text></view>
+      <view>下单时间：<text>{{indexdata.create_time_desc}}</text></view>
+    </view>
+    <view class='other_info'>
+      <view>商品合计<text>¥{{indexdata.goods_sum_money}}</text></view>
+      <view>运费<text>¥{{indexdata.delivery_money}}</text></view>
+       <view class='needpay'>需支付：<text>¥{{indexdata.pay_sum_money}}</text></view>
+    </view>
+    <view class='footer_box'>
+      <view class='btn btn_cancel' bindtap='btn_cancel' wx:for='{{indexdata.operation_list}}' wx:if='{{item.type=="cancel"&&item.is_show==1}}'>取消订单</view>
+      <view class='btn btn_pay' bindtap='btn_pay'  wx:for='{{indexdata.operation_list}}' wx:if='{{item.type=="pay"&&item.is_show==1}}'>去支付</view>
+      <view class='btn btn_logistics' bindtap='btn_confirm_delivered'  wx:for='{{indexdata.operation_list}}' wx:if='{{item.type=="confirm_delivered"&&item.is_show==1}}'>确认收货</view>
+      <view class='btn btn_delete' bindtap='btn_delete'  wx:for='{{indexdata.operation_list}}' wx:if='{{item.type=="delete"&&item.is_show==1}}'>删除订单</view>
+    </view>
+</view>

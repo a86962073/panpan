@@ -1,0 +1,24 @@
+/* pages/paysuccess/paysuccess.wxss */
+.header{
+  text-align: center;
+  padding: 120rpx;
+}
+.header image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.btn_box{
+  text-align: center;
+
+}
+.btn{
+  display: inline-block;
+  background-image: linear-gradient(212deg, #E64F00 0%, #E62000 100%);
+border-radius: 46rpx;
+height: 92rpx;
+width: 280rpx;
+text-align: center;
+line-height: 92rpx;
+color: #ffffff;
+margin: 0 20rpx;
+}

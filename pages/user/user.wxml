@@ -1,0 +1,27 @@
+<view>
+  <view class='header' wx:if='{{!login}}' bindtap='tologin'>
+    <image src='../images/user.png' class='user_image'></image>
+    <view>点击登录</view>
+  </view>
+  <view class='header2'  wx:if='{{login}}'>
+    <image src='{{indexdata.avatar_url}}' class='user_image'></image>
+    <view style='color:#373737;margin-top:14rpx;margin-left:30rpx;'>
+    <view class='user_name' style='font-size:34rpx'>{{indexdata.nickname}}</view>
+    <view class='user_phone' style='font-size:28rpx;margin-top:6rpx;'>{{indexdata.mobile}}</view>
+    </view>
+  </view>
+  <view class='main'>
+    <view class='main_menu'>
+      个人信息
+    </view>
+      <view class='main_menu' bindtap='topassword'>
+      修改登陆密码
+    </view>
+      <view class='main_menu'>
+      关于盼盼智能晾晒
+    </view>
+  </view>
+   <view class='main_menu edit' bindtap='edit' wx:if='{{login}}'>
+      退出登录
+    </view>
+</view>

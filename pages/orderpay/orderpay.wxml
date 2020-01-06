@@ -1,0 +1,37 @@
+<view class='body'>
+  <view class='user_info' wx:if='{{indexdata.delivery_address.has_delivery_address==1}}' bindtap='toaddress'>
+      <view style='display:flex'>
+      <view style='margin-right:40rpx;'>{{indexdata.delivery_address.name}}</view>
+      <view>{{indexdata.delivery_address.phone}}</view>
+      </view>
+      <view class='user_address'>{{indexdata.delivery_address.province_name}}{{indexdata.delivery_address.city_name}}{{indexdata.delivery_address.district_name}}{{indexdata.delivery_address.address}}</view>
+      <text style='position:absolute;right:24rpx;top:60rpx;'> > </text>
+  </view>
+   <view class='user_info user_info2' style='height:140rpx;line-height:140rpx;'  wx:if='{{indexdata.delivery_address.has_delivery_address==0}}'  bindtap='toaddress'>
+      <view class='user_address'>请填写顾客收货地址</view>
+      <text style='position:absolute;right:24rpx;top:25rpx;'> > </text>
+  </view>
+  <view class='customer_mobile_box'>
+    <input type='phone' placeholder='请输入顾客手机号码'  bindinput="bindKeyInput1"></input>
+  </view>
+  <view wx:for='{{indexdata.order_goods_list}}' wx:key='item'>
+  <view class='product_box' wx:for='{{item.list}}' wx:key='item' >
+      <image src='{{item.image}}' class='product_image'></image>
+      <view class='product_info'>
+          <view class='product_title'>{{item.name}}</view>
+          <view class='product_spec'>规格：{{item.attribute_set_name}}</view>
+          <view class='product_price price'><text wx:if='{{item.price!=0}}'>¥{{item.price}}</text><text wx:if='{{item.price==0}}'>赠品</text><text class='product_price'>x{{item.number}}</text></view> 
+      </view>
+    </view>
+   </view>
+    <view class='other_info'>
+      <view>商品合计<text>¥{{indexdata.goods_sum_money}}</text></view>
+      <view>运费<text>¥{{indexdata.delivery_money}}</text></view>
+  
+    </view>
+    <view class='footer_box'>
+       <view class='needpay'>需支付：<text>¥{{indexdata.goods_sum_money}}</text></view>
+      <view class='btn btn_pay' bindtap='btn_pay'>提交订单</view>
+
+    </view>
+</view>
